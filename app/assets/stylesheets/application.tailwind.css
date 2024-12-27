@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  b, strong {
+    @apply text-pink-800 tracking-wide;
+  }
+}
+
+@layer components {
+  .article-content h2,
+  .article-content h3,
+  .article-content h4 {
+    @apply font-display text-purple-700 font-normal;
+    text-wrap: balance;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .simple-drop-cap {
+    @apply inline-block;
+  }
+  .simple-drop-cap::first-letter {
+    @apply text-4xl font-display font-normal inline-block pe-1 relative;
+  }
+}

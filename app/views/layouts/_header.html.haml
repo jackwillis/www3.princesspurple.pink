@@ -1,0 +1,9 @@
+%header.bg-princess-purple.text-white.border-yellow-400.border-b-8.shadow-lg
+  .container.mx-auto.text-center.pt-6.pb-4.px-4
+    .text-5xl.font-display
+      %a{:href => "/"}
+        Princess Purple Pink
+    - if @tagline
+      .text-lg.font-serif.font-bold.opacity-80.mt-4.text-balance
+        = @tagline
+  = render 'layouts/navigation'
