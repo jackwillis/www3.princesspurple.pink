@@ -1,9 +1,7 @@
 %header.bg-princess-purple.text-white.border-yellow-400.border-b-8.shadow-lg
   .container.mx-auto.text-center.pt-6.pb-4.px-4
     .text-5xl.font-display
-      %a{:href => "/"}
-        Princess Purple Pink
-    - if @tagline
-      .text-lg.font-serif.font-bold.opacity-80.mt-4.text-balance
-        = @tagline
+      = link_to "#{site_title} ✨", root_path
+    .text-lg.font-serif.font-bold.opacity-80.mt-4.text-balance
+      = @tagline || content_for(:tagline) || content_for(:default_tagline)
   = render 'layouts/navigation'

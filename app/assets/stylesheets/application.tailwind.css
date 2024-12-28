@@ -16,14 +16,16 @@
     text-wrap: balance;
   }
 
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .simple-drop-cap {
     @apply inline-block;
   }
   .simple-drop-cap::first-letter {
     @apply text-4xl font-display font-normal inline-block pe-1 relative;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }

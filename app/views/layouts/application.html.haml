@@ -1,8 +1,15 @@
+- content_for(:default_tagline) do
+  “The World’s Leading #12 Source in Catboy News”
+  %small — Barack&nbsp;Obama
+
 !!!
 %html.bg-princess-purple.scrollbar.scrollbar-track-pink-100.scrollbar-thumb-princess-purple{:lang => 'en'}
   %head
     %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-    %title= content_for(:title) || 'Princess Purple Pink'
+    - if content_for(:subtitle).present?
+      %title= "#{site_title} - #{content_for(:subtitle)}"
+    - else
+      %title= content_for(:title)
     %meta{:content => 'width=device-width,initial-scale=1', :name => 'viewport'}/
     %meta{:content => 'yes', :name => 'apple-mobile-web-app-capable'}/
     %meta{:content => 'yes', :name => 'mobile-web-app-capable'}/

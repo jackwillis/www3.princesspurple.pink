@@ -1,36 +1,18 @@
 .bg-princess-pink{"data-controller" => "hamburger"}
   %button.p-4.focus:outline-none.hidden.sm:hidden.block.text-center.w-full.text-lg.font-serif.font-bold.tracking-wide{"aria-controls" => "navigation-menu", "aria-expanded" => "false", "aria-haspopup" => "true", "data-action" => "click->hamburger#toggle", "data-hamburger-target" => "button"}
     / Hamburger Icon (visible by default)
-    %svg.inline.w-6.h-6.me-1.relative{:alt => "Menu toggle", :class => "top-[-1px]", "data-hamburger-target" => "hamburgerIcon", :fill => "none", :stroke => "currentColor", "stroke-width" => "1.5", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+    %svg.inline.w-6.h-6.me-1.relative{:alt => "Expand menu", :class => "top-[-1px]", "data-hamburger-target" => "hamburgerIcon", :fill => "none", :stroke => "currentColor", "stroke-width" => "1.5", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
       %path{:d => "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
     / X Icon (hidden by default)
-    %svg.w-6.h-6.hidden.inline.me-1.relative{:class => "top-[-1px]", "data-hamburger-target" => "xIcon", :fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+    %svg.w-6.h-6.hidden.inline.me-1.relative{:alt => "Close menu", :class => "top-[-1px]", "data-hamburger-target" => "xIcon", :fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
       %path{"clip-rule" => "evenodd", :d => "M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z", "fill-rule" => "evenodd"}
     Menu
   %nav#navigation-menu.sm:block{"aria-label" => "Primary navigation", "data-hamburger-target" => "menu", :role => "navigation"}
-    fsadfasdf
-    sadf
-    asdf
-    sadfasd
-    fsadfasdffsad
-    falseasf
-    dfg
-    dfgdfg
-    dfgd
-  /
-    <nav aria-label="Primary navigation" id="nav-menu" role="navigation" class="sm:block">
-    <ul class="flex flex-wrap gap-x-1 gap-y-4 justify-center py-4 font-bold tracking-wide text-lg">
-    {% for nav_item in collections.navItems %}
-    <li>
-    <a href="{{ nav_item.data.link }}" class="hover:bg-pink-500 transition-colors duration-300  p-3 rounded-lg group">
-    <span class="group-hover:-translate-y-0.5 transition-transform inline-block">
-    {{ nav_item.data.icon }}
-    </span>
-    <span class="underline font-serif underline-offset-4 decoration-2 decoration-pink-300 transition-colors group-hover:decoration-transparent">
-    {{ nav_item.data.title }}
-    </span>
-    </a>
-    </li>
-    {% endfor %}
-    </ul>
-    </nav>
+    %ul.flex.flex-wrap.gap-x-1.gap-y-4.justify-center.py-4.font-bold.tracking-wide.text-lg
+      - navigation_items.each do |nav_item|
+        %li
+          %a.hover:bg-pink-500.transition-colors.duration-300.p-3.rounded-lg.group{href: nav_item[:link]}
+            %span.group-hover:-translate-y-0.5.transition-transform.inline-block
+              = nav_item[:icon]
+            %span.underline.font-serif.underline-offset-4.decoration-2.decoration-pink-300.transition-colors.group-hover:decoration-transparent
+              = nav_item[:title]

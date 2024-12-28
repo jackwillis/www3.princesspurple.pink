@@ -1,5 +1,23 @@
 %p{:style => "color: green"}= notice
-= render @article
+
+%article.container.max-w-prose.py-8.mx-auto
+  %header.mb-8.px-2
+    %p.my-2
+      Filed under 
+      %b Articles
+    %h1.font-serif.text-5xl.leading-tight.tracking-tight.my-2.text-balance
+      = @article.title
+    %p.my-2
+      Published on 
+      %b= @article.created_at.strftime('%B %d, %Y')
+
+  - if @article.try(:thumbnail).present?
+    %div.my-8.sm:px-2
+      %img.w-full{src: @article.thumbnail, alt: "Thumbnail for #{@article.title}"}
+
+  .article-content.prose.lg:prose-xl.px-2
+    = @article.body
+
 %div
   = link_to "Edit this article", edit_article_path(@article)
   |
