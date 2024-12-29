@@ -3,5 +3,5 @@
     .text-5xl.font-display
       = link_to "#{site_title} ✨", root_path
     .text-lg.font-serif.font-bold.opacity-80.mt-4.text-balance
-      = @tagline || content_for(:tagline) || content_for(:default_tagline)
+      = page_tagline
   = render 'layouts/navigation'
