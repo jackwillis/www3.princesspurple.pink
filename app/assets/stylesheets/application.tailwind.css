@@ -13,6 +13,18 @@
     @apply container max-w-prose py-8 mx-auto;
   }
 
+  .page-title {
+    @apply max-w-prose text-3xl font-display;
+  }
+
+  .tagline {
+    @apply font-bold italic tracking-wide opacity-80;
+  }
+
+  .purple-banner {
+    @apply bg-princess-purple text-white border-yellow-400 border-b-8 shadow-lg;
+  }
+
   .article-content h2,
   .article-content h3,
   .article-content h4 {
@@ -28,11 +40,15 @@
   }
 
   .form-label {
-    @apply block;
+    @apply block my-1 text-lg font-bold text-pink-800 tracking-wide font-serif;
   }
 
-  .form-text-field {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  .form-field {
+    @apply block my-1 rounded-md border-gray-300 shadow-sm focus:border-princess-pink focus:ring-princess-pink focus:outline-none !border-2 py-2 px-3;
+  }
+
+  .primary-button {
+    @apply bg-princess-pink text-white text-lg font-bold font-serif tracking-wide py-2 px-4 rounded-md shadow-md hover:bg-princess-purple hover:shadow-lg focus:ring-2 focus:ring-pink-800 focus:outline-none transition ease-in-out duration-200;
   }
 }
 

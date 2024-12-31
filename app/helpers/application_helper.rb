@@ -6,6 +6,10 @@ module ApplicationHelper
     SITE_TITLE
   end
 
+  def default_tagline
+    DEFAULT_TAGLINE
+  end
+
   def page_title
     # Return formatted title with subtitle if present, otherwise return title or default site title.
     subtitle = @subtitle.presence || content_for(:subtitle)
@@ -15,13 +19,14 @@ module ApplicationHelper
   end  
 
   def page_tagline
-    @tagline || content_for(:tagline) || DEFAULT_TAGLINE
+    @tagline.presence || content_for(:tagline).presence || DEFAULT_TAGLINE
   end
 
   def navigation_items
     [
-      { title: 'Home',    icon: '🏠', link: root_path },
-      { title: 'Archive', icon: '🗃️', link: articles_path },
+      { title: 'Home',  icon: '🏠', link: root_path },
+      { title: 'News',  icon: '📰', link: articles_path },
+      { title: 'Write', icon: '✏️', link: new_article_path },
     ]
   end
 end

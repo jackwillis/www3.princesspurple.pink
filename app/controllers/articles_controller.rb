@@ -59,6 +59,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.expect(article: [ :title, :banner_text, :body, :category, :thumbnail ])
+      params.expect(article: [ :title, :banner_text, :body, :category, :featured_image ])
     end
 end

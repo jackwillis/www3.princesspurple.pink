@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "Barbie";
+    src: url("/fonts/Barbie.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* fira-sans-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Fira Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/fira-sans-v17-latin-regular.woff2") format("woff2"); 
+}
+
+/* fira-sans-italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Fira Sans";
+    font-style: italic;
+    font-weight: 400;
+    src: url("/fonts/fira-sans-v17-latin-italic.woff2") format("woff2");
+}
+
+/* fira-sans-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Fira Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/fira-sans-v17-latin-700.woff2") format("woff2");
+}
+
+/* fira-sans-700italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Fira Sans";
+    font-style: italic;
+    font-weight: 700;
+    src: url("/fonts/fira-sans-v17-latin-700italic.woff2") format("woff2");
+}
+
+/* bitter-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Bitter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/bitter-v33-latin-regular.woff2") format("woff2");
+}
+
+/* bitter-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Bitter";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/bitter-v33-latin-700.woff2") format("woff2");
+}
+
+/* gluten-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Gluten";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/gluten-v16-latin-regular.woff2") format("woff2");
+}

@@ -1,12 +1,23 @@
-- content_for :subtitle, "Articles"
+- content_for :subtitle, 'Articles'
 - content_for :tagline do
   “The Only News Source I Trust”
   %small — Malala&nbsp;Y.
 
-%p{:style => "color: green"}= notice
+.purple-banner
+  .max-w-prose.mx-auto.py-8
+    %h1.page-title
+      News Articles
+    
+    %p.tagline
+      Effortlessly compiled by the esteemed
+      %cite.font-display.not-italic{class: 'text-[120%]'} Princess Purple Pink
+      news team.
 
-%h1 Articles
 
-= render 'articles/news_articles/grid', articles: @articles
+.bg-princess-pink
+  .p-4
+    - if notice.present?
+      %p.my-4= notice
+    = render 'articles/news_articles/grid', articles: @articles
 
 = link_to "New article", new_article_path

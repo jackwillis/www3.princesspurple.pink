@@ -10,9 +10,10 @@
   %nav#navigation-menu.sm:block{"aria-label" => "Primary navigation", "data-hamburger-target" => "menu", :role => "navigation"}
     %ul.flex.flex-wrap.gap-x-1.gap-y-4.justify-center.py-4.font-bold.tracking-wide.text-lg
       - navigation_items.each do |nav_item|
+        - page_is_current = current_page?(nav_item[:link])
         %li
-          %a.hover:bg-pink-500.transition-colors.duration-300.p-3.rounded-lg.group{href: nav_item[:link]}
+          %a.hover:bg-pink-500.transition-colors.duration-300.p-3.rounded-lg.group{href: nav_item[:link], class: "#{'bg-pink-500 text-white' if page_is_current}"}
             %span.group-hover:-translate-y-0.5.transition-transform.inline-block
               = nav_item[:icon]
-            %span.underline.font-serif.underline-offset-4.decoration-2.decoration-pink-300.transition-colors.group-hover:decoration-transparent
+            %span.font-serif{class: "#{'underline underline-offset-4 decoration-2 decoration-pink-300 group-hover transition-colors' unless page_is_current}"}
               = nav_item[:title]
