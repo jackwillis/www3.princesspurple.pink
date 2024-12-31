@@ -1,5 +1,6 @@
 module ApplicationHelper
   SITE_TITLE = 'Princess Purple Pink'.freeze
+  DEFAULT_TAGLINE = '“The World’s Leading #12 Source in Catboy News” <small>— Barack&nbsp;Obama</small>'.html_safe.freeze
 
   def site_title
     SITE_TITLE
@@ -14,7 +15,7 @@ module ApplicationHelper
   end  
 
   def page_tagline
-    @tagline || content_for(:tagline) || content_for(:default_tagline)
+    @tagline || content_for(:tagline) || DEFAULT_TAGLINE
   end
 
   def navigation_items

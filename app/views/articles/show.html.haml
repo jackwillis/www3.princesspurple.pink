@@ -1,6 +1,6 @@
 %p{:style => "color: green"}= notice
 
-%article.container.max-w-prose.py-8.mx-auto
+%article.page-container
   %header.mb-8.px-2
     %p.my-2
       Filed under 
@@ -11,9 +11,9 @@
       Published on 
       %b= @article.created_at.strftime('%B %d, %Y')
 
-  - if @article.try(:thumbnail).present?
+  - if @article.featured_image.attached?
     %div.my-8.sm:px-2
-      %img.w-full{src: @article.thumbnail, alt: "Thumbnail for #{@article.title}"}
+      = image_tag @article.featured_image.variant(resize_to_limit: [600, 600]), class: 'w-full'
 
   .article-content.prose.lg:prose-xl.px-2
     = @article.body

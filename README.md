@@ -9,6 +9,8 @@ Things you may want to cover:
 
 * System dependencies
 
+https://github.com/libvips/ruby-vips
+
 * Configuration
 
 * Database creation

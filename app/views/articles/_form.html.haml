@@ -1,24 +1,37 @@
-= form_with(model: article) do |form|
-  - if article.errors.any?
-    %div.text-red-600
-      %h2.text-lg.font-bold
-        = pluralize(article.errors.count, 'error')
-        prohibited this article from being saved:
-      %ul.list-disc.list-inside
-        - article.errors.each do |error|
-          %li= error.full_message
-  %div.mb-4
-    = form.label :title, class: 'block text-sm font-medium text-gray-700'
-    = form.text_field :title, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-  %div.mb-4
-    = form.label :banner_text, class: 'block text-sm font-medium text-gray-700'
-    = form.text_field :banner_text, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-  %div.mb-4
-    = form.label :body, class: 'block text-sm font-medium text-gray-700'
-    = form.rich_text_area :body, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-  %div.mb-4
-    = form.label :category, class: 'block text-sm font-medium text-gray-700'
-    = form.select :category, Article.categories.keys.map { |key| [key.humanize, key] }, { include_blank: 'Select a category' }, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-  %div
-    = form.submit 'Submit', class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-sdfsdf
+.page-container
+  = form_with(model: article) do |form|
+    - if article.errors.any?
+      %div.text-red-600
+        %h2.text-lg.font-bold
+          = pluralize(article.errors.count, 'error')
+          prohibited this article from being saved:
+        %ul.list-disc.list-inside
+          - article.errors.each do |error|
+            %li= error.full_message
+
+    %div.mb-4
+      = form.label :title, class: 'form-label'
+      = form.text_field :title, class: 'mt-1 form-text-field'
+
+    %div.mb-4
+      = form.label :banner_text, class: 'form-label'
+      = form.text_field :banner_text, class: 'mt-1 form-text-field'
+
+    %div.mb-4
+      = form.label :category, class: 'form-label'
+      = form.select :category, Article.categories.keys.map { |key| [key.humanize, key] }, { include_blank: 'Select a category' }, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+    
+    %div.mb-4
+      = form.label :thumbnail, class: 'form-label'
+      = form.file_field :thumbnail
+
+    - if article.thumbnail.attached?
+      .thumbnail-preview
+        = image_tag article.thumbnail.variant(resize_to_limit: [150, 150])
+
+    %div.mb-4
+      = form.label :body, class: 'block text-gray-700'
+      = form.rich_text_area :body, class: 'mt-1 max-h-screen w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+
+    %div
+      = form.submit 'Submit', class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'

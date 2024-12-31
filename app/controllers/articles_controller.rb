@@ -3,11 +3,17 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = Article.news_article
+
+    @articles = @articles.to_a
+    while @articles.size < 10
+      @articles.concat(@articles)
+    end
   end
 
   # GET /articles/1
   def show
+    @tagline = @article.banner_text
   end
 
   # GET /articles/new
@@ -53,6 +59,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.expect(article: [ :title, :banner_text, :body, :category ])
+      params.expect(article: [ :title, :banner_text, :body, :category, :thumbnail ])
     end
 end

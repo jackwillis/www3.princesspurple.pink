@@ -1,0 +1,17 @@
+%ul.grid.grid-cols-1.sm:grid-cols-2.md:grid-cols-3.lg:grid-cols-4.gap-4.sm:px-4.py-2
+  - articles.each do |article|
+    %li.bg-pink-100.rounded-lg.shadow-lg.hover:shadow-xl.group.duration-300.transition-all.hover:-translate-y-2
+      = link_to article, class: 'block p-4' do
+        - if article.featured_image.attached?
+          = image_tag article.featured_image.variant(resize_to_limit: [300, 300]), alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow'
+        - else
+          = image_tag '/images/uploads/95compy.jpg', alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow'
+        
+        %h3.text-lg.text-pink-950.group-hover:text-pink-900.transition-colors.font-semibold.mb-2.font-serif.whitespace-normal.break-words.text-balance.tracking-wide.underline.underline-offset-4.decoration-2.decoration-pink-400.group-hover:decoration-transparent
+          = article.title
+
+        %p.text-gray-500.mb-1
+          = article.created_at.strftime('%B %d, %Y')
+
+        %p.text-gray-500
+          = article.try(:author).presence || 'Anonymous'
