@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   def show
     @tagline = @article.tagline
     @tagline_attribution = @article.tagline_attribution
+    @active_navigation_tab = :news
   end
 
   def new
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @active_navigation_tab = :write
   end
 
   def create
