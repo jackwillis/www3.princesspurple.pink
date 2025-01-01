@@ -17,7 +17,7 @@ module ImageValidator
       errors.add(field, 'is too big. Must be less than 1 MB.')
     end
 
-    acceptable_types = %w(image/jpeg image/png)
+    acceptable_types = %w[image/jpeg image/png]
     unless acceptable_types.include?(image.content_type)
       errors.add(field, 'must be a JPEG or PNG.')
     end
