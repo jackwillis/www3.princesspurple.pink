@@ -12,7 +12,7 @@
       - navigation_tabs_with_active_state.each do |navigation_tab|
         %li
           %a.hover:bg-pink-500.transition-colors.duration-300.p-3.rounded-lg.group{href: navigation_tab[:link], class: "#{'bg-pink-500 text-white' if navigation_tab[:active]}"}
-            %span.group-hover:-translate-y-0.5.transition-transform.inline-block
+            %span.transition-transform.inline-block.me-1{class: 'group-hover:-translate-y-0.5'}
               = navigation_tab[:icon]
             %span.font-serif{class: "#{'underline underline-offset-4 decoration-2 decoration-pink-300 group-hover transition-colors' unless navigation_tab[:active]}"}
               = navigation_tab[:title]

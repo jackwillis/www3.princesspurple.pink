@@ -1,3 +1,9 @@
-%footer.bg-princess-purple.border-yellow-400.border-t-8
-  %p.py-6.text-white.opacity-80.text-center.tagline
-    = "© #{Time.current.year} #{site_title}"
+%footer.bg-princess-purple.border-yellow-400.border-t-8.text-center.py-6.text-white.opacity-80
+  %p.tagline
+    &copy;
+    = Time.current.year
+    %cite.font-display.not-italic{class: 'text-[120%]'}= site_title
+  %nav.my-8.mb-5
+    %ul
+      %li
+        = link_to 'Privacy Policy', root_path, class: 'font-bold font-serif tracking-wide underline text-white'

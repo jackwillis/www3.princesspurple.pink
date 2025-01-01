@@ -1,4 +1,31 @@
 - content_for :title, "#{site_title} - The World's Leading #12 Source in Catboy News"
 
+.relative.flex.flex-col.items-center.justify-center.text-center.overflow-hidden.h-72
+  = image_tag '/images/banner.jpg', alt: 'Princess Peach\'s Castle, exterior view', class: 'absolute w-full h-full object-cover top-0 left-0 z-0', width: 1280, height: 400
+
+  %h1.z-10.bg-princess-purple.p-4.sm:rounded-lg.text-white.text-3xl.xl:text-4xl.font-display.shadow-lg.text-balance.mb-4
+    Protecting America’s Children from the Heteros&nbsp;🦅
+
+  = link_to articles_path, class: 'px-4 py-3 mx-8 bg-princess-pink text-white rounded-lg hover:bg-pink-500 z-10 transition-colors duration-300 shadow-lg hover:shadow-xl font-bold tracking-wide text-lg font-serif text-balance group' do
+    %span.inline-block.transition-all.duration-300.me-1{class: 'group-hover:-translate-y-0.5'}
+      ✨
+    %span.underline.underline-offset-4.decoration-2.decoration-pink-300.transition-colors.group-hover:decoration-transparent
+      Discover Our Astounding Journalism
+
+.bg-princess-purple.text-white.border-yellow-400.border-b-8.shadow-lg
+  %h2.max-w-prose.py-8.px-4.mx-auto.text-3xl.font-display
+    Latest &amp; Greatest News
+
 .bg-princess-pink
   = render 'articles/news_articles/row', articles: @articles
+
+  %div.text-center.my-8
+    = link_to articles_path, class: 'inline-block mx-3 px-4 py-3 xl:my-3 bg-princess-purple text-white rounded-lg hover:bg-pink-500 transition-colors duration-300 shadow-lg hover:shadow-xl font-bold tracking-wide text-lg font-serif text-balance group' do
+      %span.inline-block.transition-all.duration-300.me-1{class: 'group-hover:-translate-y-0.5'}
+        📰
+      %span.underline.underline-offset-4.decoration-2.decoration-pink-300.transition-colors.group-hover:decoration-transparent
+        Read More Actual News
+
+  %div.bg-princess-purple.text-white.border-yellow-400.border-b-8.shadow-lg
+    %h2.max-w-prose.py-8.px-4.mx-auto.text-3xl.font-display
+      Our Values
