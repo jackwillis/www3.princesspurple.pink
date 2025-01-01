@@ -20,6 +20,5 @@
   .p-4
     - if notice.present?
       %p.my-4= notice
+      
     = render 'articles/news_articles/grid', articles: @articles
-
-= link_to "New article", new_article_path

@@ -2,44 +2,41 @@ require 'application_system_test_case'
 
 class ArticlesTest < ApplicationSystemTestCase
   setup do
-    @article = articles(:one)
+    @article = Article.news_article.create!(title: 'hello world', body: 'sample text')
   end
 
   test 'visiting the index' do
     visit articles_url
-    assert_selector 'h1', text: 'Articles'
+    assert_selector 'h1', text: 'News Articles'
   end
 
   test 'should create article' do
     visit articles_url
-    click_on 'New article'
+    click_on 'Write'
 
-    fill_in 'Banner text', with: @article.banner_text
-    fill_in 'Body', with: @article.body
-    fill_in 'Title', with: @article.title
-    click_on 'Create Article'
+    fill_in 'Title', with: "Something other than #{@article.title}"
+    # Simulate typing into the Trix editor
+    find('#article_body').set(@article.body)
 
+    click_on 'Submit'
     assert_text 'Article was successfully created'
-    click_on 'Back'
   end
 
   test 'should update Article' do
     visit article_url(@article)
-    click_on 'Edit this article', match: :first
+    click_on 'Edit this article'
 
-    fill_in 'Banner text', with: @article.banner_text
-    fill_in 'Body', with: @article.body
     fill_in 'Title', with: @article.title
-    click_on 'Update Article'
+    # Simulate typing into the Trix editor
+    find('#article_body').set(@article.body)
 
+    click_on 'Submit'
     assert_text 'Article was successfully updated'
-    click_on 'Back'
   end
 
   test 'should destroy Article' do
     visit article_url(@article)
     click_on 'Destroy this article', match: :first
-
     assert_text 'Article was successfully destroyed'
   end
 end
