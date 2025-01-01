@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @articles = Article.news_article
 
     @articles = @articles.to_a
-    while @articles.size < 10
+    while 0 < @articles.size && @articles.size < 10
       @articles.concat(@articles)
     end
   end

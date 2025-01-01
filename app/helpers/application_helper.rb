@@ -1,6 +1,7 @@
 module ApplicationHelper
-  SITE_TITLE = 'Princess Purple Pink'.freeze
-  DEFAULT_TAGLINE = '“The World’s Leading #12 Source in Catboy News” <small>— Barack&nbsp;Obama</small>'.html_safe.freeze
+  SITE_TITLE                  = 'Princess Purple Pink'
+  DEFAULT_TAGLINE             = 'The World’s Leading #12 Source in Catboy News'
+  DEFAULT_TAGLINE_ATTRIBUTION = 'Barack Obama'
 
   def site_title
     SITE_TITLE
@@ -8,6 +9,10 @@ module ApplicationHelper
 
   def default_tagline
     DEFAULT_TAGLINE
+  end
+
+  def default_tagline_attribution
+    DEFAULT_TAGLINE_ATTRIBUTION
   end
 
   def page_title
@@ -19,7 +24,19 @@ module ApplicationHelper
   end  
 
   def page_tagline
-    @tagline.presence || content_for(:tagline).presence || DEFAULT_TAGLINE
+    custom_tagline || DEFAULT_TAGLINE
+  end
+
+  def custom_tagline
+    @tagline.presence || content_for(:tagline).presence
+  end
+
+  def page_tagline_attribution
+    custom_tagline_attribution || DEFAULT_TAGLINE_ATTRIBUTION
+  end
+
+  def custom_tagline_attribution
+    @tagline_attribution.presence || content_for(:tagline_attribution).presence
   end
 
   def navigation_items

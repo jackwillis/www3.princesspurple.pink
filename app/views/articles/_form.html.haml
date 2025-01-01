@@ -14,13 +14,13 @@
       = form.text_field :title, class: 'form-field w-full', required: true, placeholder: 'Teenage Mutant Emo Reindeer'
 
     .mb-5
-      = form.label :banner_text, class: 'form-label'
-      = form.text_field :banner_text, class: 'form-field w-full', placeholder: sanitize(default_tagline, tags: [])
+      = form.label :tagline, class: 'form-label'
+      = form.text_field :tagline, class: 'form-field w-full', placeholder: sanitize(default_tagline, tags: [])
 
     .mb-5
-      = form.label :category, class: 'form-label'
-      = form.select :category, Article.categories.keys.map { |key| [key.humanize, key] }, { include_blank: 'Select a category' }, class: 'form-field w-full', required: true
-    
+      = form.label :tagline_attribution, class: 'form-label'
+      = form.text_field :tagline_attribution, class: 'form-field w-full', placeholder: sanitize(default_tagline_attribution, tags: [])
+
     .mb-5
       = form.label :featured_image, class: 'form-label'
       = form.file_field :featured_image, class: 'form-field w-full'
