@@ -45,9 +45,9 @@ module ApplicationHelper
       tab_data
     end
   end
-  
+
   private
-  
+
   def base_navigation_tabs
     {
       home:   { title: 'Home',  icon: '🏠', link: root_path },
