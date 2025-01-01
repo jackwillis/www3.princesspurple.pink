@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @tagline = @article.banner_text
+    @tagline = @article.tagline
+    @tagline_attribution = @article.tagline_attribution
   end
 
   def new

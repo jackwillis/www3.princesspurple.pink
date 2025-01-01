@@ -51,10 +51,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_020403) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.string "banner_text"
+    t.string "tagline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category", null: false
+    t.string "tagline_attribution"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
