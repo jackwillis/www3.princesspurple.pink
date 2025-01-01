@@ -17,7 +17,7 @@ class ArticlesTest < ApplicationSystemTestCase
     fill_in 'Title', with: "Something other than #{@article.title}"
     # Simulate typing into the Trix editor
     find('#article_body').set(@article.body)
-    
+
     click_on 'Submit'
     assert_text 'Article was successfully created'
   end
