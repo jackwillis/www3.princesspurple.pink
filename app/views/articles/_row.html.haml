@@ -1,11 +1,11 @@
 %ul.flex.overflow-x-scroll.whitespace-nowrap.space-x-4.px-4.py-8.scrollbar.scrollbar-track-pink-100.scrollbar-thumb-princess-purple
   - articles.each do |article|
     %li.inline-block.bg-pink-100.rounded-lg.shadow-lg.hover:shadow-xl.group.duration-300.transition-all.hover:-translate-y-2
-      %a.block.m-4{href: article_url(article), class: "w-[300px]"}
+      = link_to article_path(article, anchor: 'main-content'), class: 'block m-4 w-[300px]' do
         - if article.featured_image.attached?
-          = image_tag article.featured_image.variant(resize_to_fill: [300, 300]), alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow', height: 300, width: 300
+          = image_tag article.featured_image.variant(resize_to_fill: [300, 300]), alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow', height: 300, width: 300, loading: 'lazy'
         - else
-          = image_tag '/images/95compy_resized_300x300.jpg', alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow', height: 300, width: 300
+          = image_tag '/images/95compy_resized_300x300.jpg', alt: "Thumbnail", class: 'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow', height: 300, width: 300, loading: 'lazy'
 
         %h3.text-lg.text-pink-950.group-hover:text-pink-900.transition-colors.font-semibold.mb-2.font-serif.whitespace-normal.break-words.text-balance.tracking-wide.underline.underline-offset-4.decoration-2.decoration-pink-400.group-hover:decoration-transparent
           = article.title
