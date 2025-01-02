@@ -260,6 +260,7 @@ GEM
     rake (13.2.1)
     rdoc (6.10.0)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -394,13 +395,14 @@ DEPENDENCIES
   capybara
   debug
   draper
-  haml-rails (~> 2.0)
+  haml-rails
   image_processing (~> 1.2)
   importmap-rails
   kamal
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.1)
+  redcarpet
   rubocop-rails-omakase
   ruby-vips
   selenium-webdriver

@@ -10,7 +10,7 @@
 
 @layer components {
   .page-container {
-    @apply container max-w-prose py-8 mx-auto;
+    @apply container max-w-prose mx-auto px-2;
   }
 
   .page-title {

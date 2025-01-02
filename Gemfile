@@ -39,6 +39,18 @@ gem 'thruster', require: false
 gem 'image_processing', '~> 1.2'
 gem 'ruby-vips'
 
+# Decorator pattern
+gem 'draper'
+
+# Templating for views
+gem 'haml-rails'
+
+# Markdown parser
+gem 'redcarpet'
+
+# Tailwind CSS
+gem 'tailwindcss-rails', '~> 3.1'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
@@ -60,8 +72,3 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
-
-gem 'tailwindcss-rails', '~> 3.1'
-gem 'haml-rails', '~> 2.0'
-
-gem 'draper'

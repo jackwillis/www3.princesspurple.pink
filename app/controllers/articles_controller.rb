@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
   def index
-    @articles = Article.news_article.decorate
+    @articles = Article.all.decorate
   end
 
   def show

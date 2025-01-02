@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.news_article.decorate
+    @articles = Article.limit(6).decorate
   end
 end

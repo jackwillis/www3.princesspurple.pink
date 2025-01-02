@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_01_020403) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_02_033108) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -56,6 +56,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_020403) do
     t.datetime "updated_at", null: false
     t.integer "category", null: false
     t.string "tagline_attribution"
+  end
+
+  create_table "privacy_policies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
