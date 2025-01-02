@@ -12,7 +12,7 @@ class ArticleDecorator < Draper::Decorator
   def featured_image_thumbnail_tag
     image_source =
       if object.featured_image.attached?
-        object.featured_image.variant(resize_to_fill: [300, 300])
+        object.featured_image.variant(resize_to_fill: [ 300, 300 ])
       else
         '/images/95compy_resized_300x300.jpg'
       end
