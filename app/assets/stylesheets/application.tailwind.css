@@ -21,6 +21,10 @@
     @apply font-bold italic tracking-wide opacity-80;
   }
 
+  .logo-font {
+    @apply font-display not-italic text-[120%];
+  }
+
   .purple-banner {
     @apply bg-princess-purple text-white border-yellow-400 border-b-8 shadow-lg;
   }
