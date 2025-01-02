@@ -63,3 +63,5 @@ end
 
 gem 'tailwindcss-rails', '~> 3.1'
 gem 'haml-rails', '~> 2.0'
+
+gem 'draper'
