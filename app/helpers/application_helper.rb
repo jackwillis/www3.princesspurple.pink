@@ -3,6 +3,8 @@ module ApplicationHelper
   DEFAULT_TAGLINE             = 'The World’s Leading #12 Source in Catboy News'
   DEFAULT_TAGLINE_ATTRIBUTION = 'Barack Obama'
 
+  include MarkdownHelper
+
   def site_title
     SITE_TITLE
   end
