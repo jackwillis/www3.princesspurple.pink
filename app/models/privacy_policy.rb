@@ -24,6 +24,7 @@ class PrivacyPolicy
     end
 
     def find_by(date:)
+      return nil if date.blank?
       file_path = path_for_date(date)
       return unless File.exist?(file_path)
       content = File.read(file_path)
