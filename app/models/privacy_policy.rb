@@ -8,7 +8,7 @@ class PrivacyPolicy
   def initialize(date:, content:)
     raise ArgumentError, 'date must be a Date' unless date.is_a?(Date)
     raise ArgumentError, 'content cannot be blank' if content.blank?
-    
+
     @date = date
     @content = content
   end
