@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.news_article.decorate
+    @active_navigation_tab = :home
+    @articles = Article.order(publication_date: :desc).decorate
   end
 end

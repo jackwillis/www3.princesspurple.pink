@@ -5,8 +5,8 @@ class ArticleDecorator < Draper::Decorator
     object.try(:author) || 'Anonymous'
   end
 
-  def created_at
-    object.created_at.strftime('%B %d, %Y')
+  def publication_date
+    object.publication_date.strftime('%B %d, %Y')
   end
 
   def featured_image_thumbnail_tag

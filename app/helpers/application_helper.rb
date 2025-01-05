@@ -4,6 +4,7 @@ module ApplicationHelper
   DEFAULT_TAGLINE_ATTRIBUTION = 'Barack Obama'
 
   include MarkdownHelper
+  include NavigationHelper
 
   def site_title
     SITE_TITLE
@@ -41,20 +42,7 @@ module ApplicationHelper
     @tagline_attribution.presence || content_for(:tagline_attribution).presence
   end
 
-  def navigation_tabs_with_active_state
-    base_navigation_tabs.map do |tab_name, tab_data|
-      tab_data[:active] = @active_navigation_tab == tab_name || current_page?(tab_data[:link])
-      tab_data
-    end
-  end
-
-  private
-
-  def base_navigation_tabs
-    {
-      home:   { title: 'Home',  icon: '🏠', link: root_path },
-      news:   { title: 'News',  icon: '📰', link: articles_path },
-      write:  { title: 'Write', icon: '✏️', link: new_article_path }
-    }
+  def attachment_persisted?(attachable)
+    attachable.attached? && attachable.attachment.blob.present? && attachable.attachment.blob.persisted?
   end
 end
