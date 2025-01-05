@@ -9,7 +9,7 @@
       = @article.title
     %p.my-2
       Published on 
-      %b= @article.created_at.strftime('%B %d, %Y')
+      %b= @article.publication_date
 
   - if @article.featured_image.attached?
     %div.my-8.sm:px-2

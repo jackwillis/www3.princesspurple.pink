@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @article = Article.news_article.new(title: 'hello world', body: 'sample text')
+    @article = Article.new(title: 'hello world', body: 'sample text')
   end
 
   test 'should get index' do

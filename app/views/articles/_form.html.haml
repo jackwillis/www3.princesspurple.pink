@@ -10,28 +10,50 @@
             %li= error.full_message
 
     .mb-5
-      = form.label :title, class: 'form-label'
+      = form.label :title, class: 'form-label' do
+        Article title
+        %small (required)
       = form.text_field :title, class: 'form-field w-full', required: true, placeholder: 'Teenage Mutant Emo Reindeer'
 
     .mb-5
-      = form.label :tagline, class: 'form-label'
+      = form.label :tagline, class: 'form-label' do
+        Header tagline
       = form.text_field :tagline, class: 'form-field w-full', placeholder: sanitize(default_tagline, tags: [])
 
     .mb-5
-      = form.label :tagline_attribution, class: 'form-label'
+      = form.label :tagline_attribution, class: 'form-label' do
+        Header tagline attribution
       = form.text_field :tagline_attribution, class: 'form-field w-full', placeholder: sanitize(default_tagline_attribution, tags: [])
 
     .mb-5
       = form.label :featured_image, class: 'form-label'
       = form.file_field :featured_image, class: 'form-field w-full'
 
-    - if article.featured_image.attached?
-      .thumbnail-preview
+      - if attachment_persisted?(article.featured_image)
         = image_tag article.featured_image.variant(resize_to_limit: [150, 150])
 
     .mb-5
-      = form.label :body, class: 'form-label'
+      = form.label :featured_image_alt_text, class: 'form-label' do
+        Alt text
+        %small (required if image is present)
+      = form.text_field :featured_image_alt_text, class: 'form-field w-full', placeholder: 'Princess Purple Pink in her regal attire'
+
+    .mb-5
+      = form.label :body, class: 'form-label' do
+        Article body
+        %small (required)
       = form.rich_text_area :body, class: 'form-field w-full min-h-[6em] sm:min-h-[12em]', required: true
 
-    .mb-4
+    .mb-5
+      = form.label :published, class: 'form-label' do
+        Published?
+      = form.checkbox :published, class: 'form-field'
+
+    .mb-10
+      = form.label :publication_date, class: 'form-label' do
+        Publication date
+        %small (required)
+      = form.date_field :publication_date, class: 'form-field w-full', placeholder: 'Princess Purple Pink in her regal attire', required: true
+
+    .mb-5
       = form.submit 'Submit', class: 'primary-button'

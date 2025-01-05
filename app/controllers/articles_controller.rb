@@ -2,16 +2,17 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
   def index
-    @articles = Article.news_article.decorate
+    @active_navigation_tab = :news
+    @articles = Article.order(publication_date: :desc).decorate
   end
 
   def show
-    @tagline = @article.tagline
-    @tagline_attribution = @article.tagline_attribution
     @active_navigation_tab = :news
+    @article = @article.decorate
   end
 
   def new
+    @active_navigation_tab = :write
     @article = Article.new
   end
 
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.news_article.new(article_params)
+    @article = Article.new(article_params)
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
@@ -49,6 +50,15 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.expect(article: [ :title, :banner_text, :body, :category, :featured_image ])
+    params.expect(article: %i[
+      title
+      tagline
+      tagline_attribution
+      featured_image
+      featured_image_alt_text
+      body
+      published
+      publication_date
+    ])
   end
 end
