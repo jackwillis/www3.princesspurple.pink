@@ -12,7 +12,8 @@
 
 <div class="max-w-prose mx-auto py-8">
   <h1 class="page-title">
-    <%= "Editing "#{link_to @article.title, @article, class: 'text-pink-950 underline underline-offset-4 decoration-2 decoration-pink-400 hover:decoration-transparent'}"".html_safe %>
+    Editing
+    <%= link_to @article.title, @article, class: 'text-pink-950 underline underline-offset-4 decoration-2 decoration-pink-400 hover:decoration-transparent' %>
   </h1>
   
   <%= render "form", article: @article %>
