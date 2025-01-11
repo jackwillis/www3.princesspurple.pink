@@ -1,5 +1,5 @@
 class PrivacyPoliciesController < ApplicationController
-  before_action :set_article, only: %i[ show ]
+  before_action :set_privacy_policy, only: %i[ show ]
 
   def show
     @privacy_policy = @privacy_policy.decorate
@@ -7,9 +7,9 @@ class PrivacyPoliciesController < ApplicationController
 
   private
 
-  def set_article
-    date = params[:policy_date].presence
-    @privacy_policy = PrivacyPolicy.find_by(date:)
+  def set_privacy_policy
+    effective_date = params[:effective_date].presence
+    @privacy_policy = PrivacyPolicy.find_by(effective_date:)
     @privacy_policy ||= PrivacyPolicy.current
   end
 end

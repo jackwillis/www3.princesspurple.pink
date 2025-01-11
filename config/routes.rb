@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :articles
 
-  get 'privacy(/:policy_date)' => 'privacy_policies#show', as: :privacy_policy
+  get 'privacy(/:effective_date)' => 'privacy_policies#show', as: :privacy_policy
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
