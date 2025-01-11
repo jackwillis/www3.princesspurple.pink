@@ -39,11 +39,13 @@ gem 'thruster', require: false
 gem 'image_processing', '~> 1.2'
 gem 'ruby-vips'
 
+# Markdown rendering
 gem 'redcarpet'
 
+# TailwindCSS
 gem 'tailwindcss-rails', '~> 3.2'
-gem 'haml-rails', '~> 2.0'
 
+# Decorator pattern
 gem 'draper'
 
 group :development, :test do

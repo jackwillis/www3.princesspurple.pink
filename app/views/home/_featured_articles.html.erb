@@ -1,0 +1,16 @@
+<h2 class="sr-only">Latest And Greatest News</h2>
+
+<div class="bg-princess-pink">
+  <%= render 'articles/row', articles: @articles %>
+
+  <div class="text-center py-6">
+    <%= link_to articles_path, class: 'inline-block mx-3 px-4 py-3 xl:my-3 bg-princess-purple text-white rounded-lg hover:bg-pink-500 transition-colors duration-300 shadow-lg hover:shadow-xl font-bold tracking-wide text-lg font-serif text-balance group' do %>
+      <span class="inline-block transition-all duration-300 me-1 group-hover:-translate-y-0.5">
+        📰
+      </span>
+      <span class="underline underline-offset-4 decoration-2 decoration-pink-300 transition-colors group-hover:decoration-transparent">
+        Read More Actual News
+      </span>
+    <% end %>
+  </div>
+</div> 

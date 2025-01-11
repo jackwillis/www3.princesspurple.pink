@@ -8,7 +8,7 @@ class ImportPrivacyPolicies
     Dir.glob(PRIVACY_POLICY_SOURCE_PATTERN).each do |filename|
       process_file(filename)
     end
-    logger.info("Finished processing files in #{PRIVACY_POLICY_FILES_PATTERN}")
+    logger.info("Finished processing files in #{PRIVACY_POLICY_SOURCE_PATTERN}")
   end
 
   private
@@ -19,10 +19,11 @@ class ImportPrivacyPolicies
 
     # Look for YAML front matter between --- delimiters at start of file
     # The regex pattern matches:
-    # \A        - Start of string
-    # ---\s*\n  - Opening --- delimiter followed by optional whitespace and newline
-    # .*?       - Any content (non-greedy match)
+    # \A            - Start of string
+    # ---\s*\n      - Opening --- delimiter followed by optional whitespace and newline
+    # .*?           - Any content (non-greedy match)
     # ^(---\s*$\n?) - Closing --- delimiter on its own line
+    # m             - Multiline mode
     front_matter_pattern = /\A(---\s*\n.*?\n?)^(---\s*$\n?)/m
 
     if content =~ front_matter_pattern
@@ -43,7 +44,7 @@ class ImportPrivacyPolicies
   end
 
   def create_or_update_policy!(front_matter:, markdown_content:)
-    policy = PrivacyPolicy.find_or_initialize_by!(
+    policy = PrivacyPolicy.find_or_initialize_by(
       version:        front_matter[:version],
       effective_date: front_matter[:date]
     )

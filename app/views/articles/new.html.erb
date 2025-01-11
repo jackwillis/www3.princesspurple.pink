@@ -1,0 +1,25 @@
+<% content_for :subtitle do %>
+  New article
+<% end %>
+
+<% content_for :tagline do %>
+  Just Do It
+<% end %>
+
+<% content_for :tagline_attribution do %>
+  Shia&nbsp;L.
+<% end %>
+
+<div class="purple-banner">
+  <div class="max-w-prose mx-auto py-8">
+    <h1 class="page-title">
+      Create a New Article
+    </h1>
+
+    <p class="tagline">
+      Because you have something important to tell the world.
+    </p>
+  </div>
+</div>
+
+<%= render 'form', article: @article %> 

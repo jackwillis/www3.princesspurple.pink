@@ -1,0 +1,25 @@
+<% content_for :subtitle do %>
+  Articles
+<% end %>
+
+<% content_for :tagline do %>
+  The Only News Source I Trust
+<% end %>
+
+<% content_for :tagline_attribution do %>
+  Malala&nbsp;Y.
+<% end %>
+
+<%= render 'shared/purple_banner',
+      title: 'News Articles',
+      tagline: raw("Effortlessly compiled by the esteemed <cite class='font-display not-italic text-[120%]'>Princess Purple Pink</cite> news team.") %>
+
+<div class="bg-princess-pink">
+  <div class="p-4">
+    <% if notice.present? %>
+      <p class="my-4"><%= notice %></p>
+    <% end %>
+      
+    <%= render 'grid', articles: @articles %>
+  </div>
+</div> 

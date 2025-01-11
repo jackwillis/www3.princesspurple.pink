@@ -1,0 +1,15 @@
+<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-4 py-2">
+  <% articles.each do |article| %>
+    <li class="bg-pink-100 rounded-lg shadow-lg hover:shadow-xl group duration-300 transition-all hover:-translate-y-2">
+      <%= link_to article_path(article, anchor: 'main-content'), class: 'block p-4' do %>
+        <%= article.featured_image_thumbnail_tag %>
+        
+        <h3 class="text-lg text-pink-950 group-hover:text-pink-900 transition-colors font-semibold mb-2 font-serif whitespace-normal break-words text-balance tracking-wide underline underline-offset-4 decoration-2 decoration-pink-400 group-hover:decoration-transparent">
+          <%= article.title %>
+        </h3>
+
+        <%= render 'articles/article_metadata', article: article %>
+      <% end %>
+    </li>
+  <% end %>
+</ul> 

@@ -1,4 +1,4 @@
-class PrivacyPolicyDecorator < Draper::Decorator
+class PrivacyPolicyDecorator < ApplicationDecorator
   delegate_all
 
   def effective_date

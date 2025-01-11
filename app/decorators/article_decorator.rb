@@ -1,4 +1,4 @@
-class ArticleDecorator < Draper::Decorator
+class ArticleDecorator < ApplicationDecorator
   delegate_all
 
   def author
@@ -19,11 +19,11 @@ class ArticleDecorator < Draper::Decorator
 
     h.image_tag(
       image_source,
-      alt:    'Thumbnail',
-      class:  'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow',
-      height: 300,
-      width:  300,
-      loading: 'lazy'
+      alt:      'Thumbnail',
+      class:    'w-72 mx-auto sm:w-full object-cover rounded-md mb-4 shadow',
+      height:   300,
+      width:    300,
+      loading:  'lazy'
     )
   end
 end
