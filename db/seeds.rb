@@ -8,4 +8,4 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-SeedPrivacyPolicies.new.call
+ImportPrivacyPolicies.new.call

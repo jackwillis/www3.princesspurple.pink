@@ -1,4 +1,4 @@
-desc 'Seed privacy policies'
-task 'privacy_policies:seed' => :environment do
-  SeedPrivacyPolicies.new.call
+desc 'Import privacy policies'
+task 'privacy_policies:import' => :environment do
+  ImportPrivacyPolicies.new.call
 end
