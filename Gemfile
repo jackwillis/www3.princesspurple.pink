@@ -41,7 +41,7 @@ gem 'ruby-vips'
 
 gem 'redcarpet'
 
-gem 'tailwindcss-rails', '~> 3.1'
+gem 'tailwindcss-rails', '~> 3.2'
 gem 'haml-rails', '~> 2.0'
 
 gem 'draper'
