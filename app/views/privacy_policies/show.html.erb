@@ -1,0 +1,21 @@
+<% content_for :subtitle do %>
+  Privacy Policy
+<% end %>
+
+<div class="purple-banner">
+  <div class="max-w-prose mx-auto py-8 px-2">
+    <h2 class="page-title">
+      Privacy Policy
+    </h2>
+    <p class="tagline">
+      Super Effective
+      <%= @privacy_policy.effective_date %>
+    </p>
+  </div>
+</div>
+
+<article class="page-container">
+  <div class="prose lg:prose-xl my-6 article-content">
+    <%= @privacy_policy.content %>
+  </div>
+</article> 

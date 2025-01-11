@@ -1,0 +1,27 @@
+<div class="bg-princess-purple text-white">
+  <h2 class="max-w-prose py-8 px-4 mx-auto text-3xl font-display">
+    Our Values
+  </h2>
+</div>
+
+<div class="bg-princess-pink">
+  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 py-8">
+    <%= render 'our_values_card', data: { 
+      title: '<cite class="logo-font font-normal">Princess Purple Pink</cite> is <strong>Literally</strong> the Only News Outlet That Opposes Murder and Crime'.html_safe, 
+      image_url: '/images/purplepink002_resized_300x300.jpg', 
+      thumbnail_alt_text: 'Princess Purple Pink in her regal attire' 
+    } do %>
+      <p class="text-balance">
+        <strong>We Support Every Ammmendment</strong>, Including Ones That Haven't Come Out Yet.
+      </p>
+
+      <p>
+        Ohio shape:
+        <%= image_tag '/images/ohioshape.svg', alt: 'Blank Ohio State Highway shield', width: 30, height: 30, class: 'align-middle inline not-prose' %>
+        .
+        U.S.&nbsp;151:
+        <%= image_tag '/images/us_151_-wi-.svg', alt: 'U.S. Route 151 shield', width: 30, height: 30, class: 'align-middle inline not-prose' %>
+      </p>
+    <% end %>
+  </ul>
+</div> 

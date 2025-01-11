@@ -1,0 +1,18 @@
+<header class="bg-princess-purple text-white border-yellow-400 border-b-8 shadow-lg">
+  <div class="container mx-auto text-center py-6 px-4">
+    <div class="text-4xl font-display">
+      <%= link_to site_title, root_path %>
+    </div>
+
+    <div class="tagline text-balance">
+      <% if custom_tagline.blank? || custom_tagline_attribution.present? %>
+        <%= raw "&ldquo;#{page_tagline.strip}&rdquo;" %>
+        <small><%= raw "&ndash;&thinsp;#{page_tagline_attribution.lstrip}" %></small>
+      <% else %>
+        <%= page_tagline %>
+      <% end %>
+    </div>
+  </div>
+  
+  <%= render 'layouts/navigation' %>
+</header> 

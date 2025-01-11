@@ -1,0 +1,71 @@
+<div class="page-container">
+  <%= form_with(model: article) do |form| %>
+    <%= render 'shared/form_errors', record: article if article.errors.any? %>
+
+    <div class="mb-5">
+      <%= form.label :title, class: 'form-label' do %>
+        Article title
+        <small class="text-gray-600">(required)</small>
+      <% end %>
+      <%= form.text_field :title, class: 'form-field w-full', required: true, placeholder: 'Teenage Mutant Emo Reindeer' %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :tagline, class: 'form-label' do %>
+        Header tagline
+      <% end %>
+      <%= form.text_field :tagline, class: 'form-field w-full', placeholder: sanitize(default_tagline, tags: []) %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :tagline_attribution, class: 'form-label' do %>
+        Header tagline attribution
+      <% end %>
+      <%= form.text_field :tagline_attribution, class: 'form-field w-full', placeholder: sanitize(default_tagline_attribution, tags: []) %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :featured_image, class: 'form-label' %>
+      <%= form.file_field :featured_image, class: 'form-field w-full' %>
+
+      <% if attachment_persisted?(article.featured_image) %>
+        <%= image_tag article.featured_image.variant(resize_to_limit: [150, 150]) %>
+      <% end %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :featured_image_alt_text, class: 'form-label' do %>
+        Alt text
+        <small>(required if image is present)</small>
+      <% end %>
+      <%= form.text_field :featured_image_alt_text, class: 'form-field w-full', placeholder: 'Princess Purple Pink in her regal attire' %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :body, class: 'form-label' do %>
+        Article body
+        <small>(required)</small>
+      <% end %>
+      <%= form.rich_text_area :body, class: 'form-field w-full min-h-[6em] sm:min-h-[12em]', required: true %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.label :published, class: 'form-label' do %>
+        Published?
+      <% end %>
+      <%= form.check_box :published, class: 'form-field' %>
+    </div>
+
+    <div class="mb-10">
+      <%= form.label :publication_date, class: 'form-label' do %>
+        Publication date
+        <small>(required)</small>
+      <% end %>
+      <%= form.date_field :publication_date, class: 'form-field w-full', required: true %>
+    </div>
+
+    <div class="mb-5">
+      <%= form.submit 'Submit', class: 'primary-button' %>
+    </div>
+  <% end %>
+</div> 

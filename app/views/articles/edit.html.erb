@@ -1,0 +1,19 @@
+<% content_for :subtitle do %>
+  New article
+<% end %>
+
+<% content_for :tagline do %>
+  Just Do It
+<% end %>
+
+<% content_for :tagline_attribution do %>
+  Shia&nbsp;L.
+<% end %>
+
+<div class="max-w-prose mx-auto py-8">
+  <h1 class="page-title">
+    <%= "Editing "#{link_to @article.title, @article, class: 'text-pink-950 underline underline-offset-4 decoration-2 decoration-pink-400 hover:decoration-transparent'}"".html_safe %>
+  </h1>
+  
+  <%= render "form", article: @article %>
+</div> 

@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<article class="page-container">
+  <header class="mb-8 px-2">
+    <p class="my-2">
+      Filed under 
+      <b>Articles</b>
+    </p>
+    <h1 class="font-serif text-5xl leading-tight tracking-tight my-2 text-balance">
+      <%= @article.title %>
+    </h1>
+    <p class="my-2">
+      Published on 
+      <b><%= @article.publication_date %></b>
+    </p>
+  </header>
+
+  <% if @article.featured_image.attached? %>
+    <div class="my-8 sm:px-2">
+      <%= image_tag @article.featured_image.variant(resize_to_limit: [600, 600]), class: 'w-full' %>
+    </div>
+  <% end %>
+
+  <div class="article-content prose lg:prose-xl px-2">
+    <%= @article.body %>
+  </div>
+</article>
+
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %>
+  
+  <%= button_to "Destroy this article", @article, method: :delete %>
+</div> 
