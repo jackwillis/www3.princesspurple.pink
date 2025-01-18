@@ -1,5 +1,5 @@
 class ImportPrivacyPolicies
-  PRIVACY_POLICY_SOURCE_PATTERN = Rails.root.join('policies/privacy/*.md')
+  PRIVACY_POLICY_SOURCE_PATTERN = Rails.root.join('archive/privacy_policies/*.md')
 
   include MarkdownHelper
 
