@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class ContentPreprocessorHelperTest < ActionView::TestCase
-  include ContentPreprocessorHelper
+class CustomTagsHelperTest < ActionView::TestCase
+  include CustomTagsHelper
 
   def test_render_dropcap
     result = render_dropcap('Once upon a time...')
@@ -45,14 +45,14 @@ class ContentPreprocessorHelperTest < ActionView::TestCase
     assert_equal expected, result
   end
 
-  def test_render_enhanced_markdown_with_all_transformations
+  def test_render_custom_tags_with_all_transformations
     content = <<~MARKDOWN
       [dropcap]Once upon a time...[/dropcap]
       [youtube id="a1_B2c3"]
       [hr style="fancy-style"]
     MARKDOWN
 
-    result = render_enhanced_markdown(content)
+    result = render_custom_tags(content)
 
     expected = <<~HTML
       <span class="drop-cap">
@@ -71,17 +71,17 @@ class ContentPreprocessorHelperTest < ActionView::TestCase
     assert_equal expected.strip, result.strip
   end
 
-  def test_render_enhanced_markdown_with_partial_transformations
+  def test_render_custom_tags_with_partial_transformations
     content = 'Here is a [dropcap]story[/dropcap] with a [hr style="default-style"].'
-    result = render_enhanced_markdown(content)
+    result = render_custom_tags(content)
 
     expected = "Here is a <span class=\"drop-cap\">\n  <span class=\"drop-cap-initial\">s</span>tory\n</span> with a <hr class=\"default-style\">."
     assert_equal expected, result
   end
 
-  def test_render_enhanced_markdown_with_no_transformations
+  def test_render_custom_tags_with_no_transformations
     content = 'This is a simple text with no custom tags.'
-    result = render_enhanced_markdown(content)
+    result = render_custom_tags(content)
     assert_equal content, result
   end
 end

@@ -1,18 +1,28 @@
-module ContentPreprocessorHelper
+# Helper module to preprocess content and replace custom tags
+# (e.g., [dropcap], [youtube], [hr]) with corresponding HTML elements.
+#
+# Supported custom tags:
+# - [dropcap]Once upon a[/dropcap]  -> Formats the first character as a drop cap.
+# - [youtube id="video_id"]         -> Embeds a YouTube video.
+# - [hr style="style_name"]         -> Inserts a custom-styled horizontal rule.
+module CustomTagsHelper
+  # Uses named captures to extract the content of each tag.
   TRANSFORMATIONS_REGEX = /
     \[dropcap\](?<dropcap_content>.*?)\[\/dropcap\] |
     \[youtube\s+id="(?<youtube_id>.*?)"\] |
     \[hr\s+style="(?<hr_style>.*?)"\]
   /x.freeze
 
-  def render_enhanced_markdown(content)
+  def render_custom_tags(content)
     content.gsub(TRANSFORMATIONS_REGEX) do |match|
+      # In each match, we check each of the named captures.
+      # If the capture is present, we render the corresponding HTML element.
       case Regexp.last_match
-      in { dropcap_content: content } if content
+      in { dropcap_content: content } unless content.nil?
         render_dropcap(content)
-      in { youtube_id: id } if id
+      in { youtube_id: id } unless id.nil?
         render_youtube(id)
-      in { hr_style: style } if style
+      in { hr_style: style } unless style.nil?
         render_custom_hr(style)
       else
         match
