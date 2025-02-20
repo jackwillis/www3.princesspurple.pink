@@ -43,7 +43,7 @@ gem 'ruby-vips'
 gem 'redcarpet'
 
 # TailwindCSS
-gem 'tailwindcss-rails', '~> 3.2'
+gem 'tailwindcss-rails', '~> 4.1'
 
 # Decorator pattern
 gem 'draper'
